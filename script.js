@@ -58,7 +58,6 @@ function UpdateCofeeInfo(id) {
 }
 
 function DeleteCoffeeInfo(id) {
-  
   var f = new FormData();
   f.append("id", id);
 
@@ -73,8 +72,7 @@ function DeleteCoffeeInfo(id) {
   r.send(f);
 }
 
-
-function addcart(id){
+function addcart(id) {
   var f = new FormData();
   f.append("id", id);
 
@@ -88,3 +86,24 @@ function addcart(id){
   r.open("POST", "addcartProcess.php", true);
   r.send(f);
 }
+
+function UpdateQty(id) {
+  var qty = document.getElementById("qty").value;
+
+  var f = new FormData();
+  f.append("id", id);
+  f.append("qty", qty);
+
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function () {
+    if (r.readyState == 4 && r.status == 200) {
+      alert(r.responseText);
+      window.location.reload();
+    }
+  };
+  r.open("POST", "updateCartQty.php", true);
+  r.send(f);
+}
+
+
+

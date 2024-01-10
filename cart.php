@@ -34,7 +34,7 @@ require "connection.php";
                 <span><?php echo ($product_data["CoffeeName"]) ?></span>
                 <span> X <?php echo ($product_data["price"]) ?></span>
                 <input type="number" id="qty" value="<?php echo ($product_data["qty"]) ?>">
-                <button>Update quantity</button>
+                <button onclick="UpdateQty(<?php echo ($product_data['Coffee_CoffeeId']) ?>)">Update quantity</button>
                 <button onclick="addcart(<?php echo ($product_data['Coffee_CoffeeId']) ?>)">Delete from cart</button>
                 <hr>
             </div>
@@ -47,7 +47,7 @@ require "connection.php";
     </div>
     <div style="width: 20%;">
         <hr>
-        <h1>Total = <?php echo ($total) ?></h1>
+        <h1>Total = Rs. <?php echo ($total) ?></h1>
         <hr>
         <button>Buy Now</button>
     </div>
