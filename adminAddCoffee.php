@@ -15,9 +15,17 @@
         <hr>
         <span>Coffee Category</span>
         <select name="" id="Ccategory">
-            <option value="1">Hot Coffee</option>
-            <option value="2">Cold Coffee</option>
-            <option value="3">Shakes</option>
+            <?php
+            $category_rs = Database::search("SELECT * FROM `coffeecategory`");
+            $category_num = $category_rs->num_rows;
+
+            for ($i = 0; $i < $category_num; $i++) {
+                $category_data = $category_rs->fetch_assoc();
+            ?>
+                <option value="<?php echo ($category_data["Category_id"]) ?>"><?php echo ($category_data["Category_name"]) ?></option>
+            <?php
+            }
+            ?>
         </select>
         <hr>
         <span>Cofee Price</span>
