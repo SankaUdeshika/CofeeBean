@@ -22,15 +22,15 @@ require "connection.php";
     ?>
         <div>
             <img src="<?php echo ($Coffee_data["CoffeImagePath"]) ?>" style="width: 100px; height: auto;" alt="">
-            <input type="text" value="<?php echo ($Coffee_data["CoffeeName"]) ?>">
-            <input type="text" value="<?php echo ($Coffee_data["price"]) ?>">
-            <textarea name="" id="" cols="30" rows="10"><?php echo ($Coffee_data["CofeeDescription"]) ?></textarea>
-            <select id="">
+            <input type="text" id="Cname" value="<?php echo ($Coffee_data["CoffeeName"]) ?>">
+            <input type="text" id="Cprice" value="<?php echo ($Coffee_data["price"]) ?>">
+            <textarea name="" id="Cdescription" cols="30" rows="10"><?php echo ($Coffee_data["CofeeDescription"]) ?></textarea>
+            <select id="Ccategory">
                 <?php
                 $category_rs = Database::search("SELECT * FROM `coffeecategory`");
                 $category_num = $category_rs->num_rows;
 
-                for ($i = 0; $i < $category_num; $i++) {
+                for ($x = 0; $x < $category_num; $x++) {
                     $category_data = $category_rs->fetch_assoc();
                 ?>
                     <option value="<?php echo ($category_data["Category_id"]) ?>"><?php echo ($category_data["Category_name"]) ?></option>
@@ -38,12 +38,16 @@ require "connection.php";
                 }
                 ?>
             </select>
+            <button onclick="UpdateCofeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Upadate</button>
+            <button>Delete</button>
         </div>
     <?php
     }
 
 
     ?>
+
+    <script src="script.js"></script>
 
 </body>
 
