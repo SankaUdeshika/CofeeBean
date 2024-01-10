@@ -72,3 +72,19 @@ function DeleteCoffeeInfo(id) {
   r.open("POST", "DeleteCoffeeProcess.php", true);
   r.send(f);
 }
+
+
+function addcart(id){
+  var f = new FormData();
+  f.append("id", id);
+
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function () {
+    if (r.readyState == 4 && r.status == 200) {
+      alert(r.responseText);
+      window.location.reload();
+    }
+  };
+  r.open("POST", "addcartProcess.php", true);
+  r.send(f);
+}
