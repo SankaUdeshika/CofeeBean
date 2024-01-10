@@ -39,7 +39,7 @@ require "connection.php";
                 ?>
             </select>
             <button onclick="UpdateCofeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Upadate</button>
-            <button>Delete</button>
+            <button onclick="DeleteCoffeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Delete</button>
         </div>
     <?php
     }
