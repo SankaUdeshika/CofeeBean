@@ -1,3 +1,4 @@
+<?php require "connection.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
         <span>Coffee Category</span>
         <select name="" id="Ccategory">
             <?php
-            $category_rs = Database::search("SELECT * FROM `coffeecategory`");
+            $category_rs = Database::search("SELECT * FROM `coffeecategory` ");
             $category_num = $category_rs->num_rows;
 
             for ($i = 0; $i < $category_num; $i++) {
