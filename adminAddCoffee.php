@@ -15,20 +15,20 @@
         <hr>
         <span>Coffee Category</span>
         <select name="" id="Ccategory">
-            <option value="Hot Coffee">Hot Coffee</option>
-            <option value="Cold Coffee">Cold Coffee</option>
-            <option value="Shakes">Shakes Coffee</option>
+            <option value="1">Hot Coffee</option>
+            <option value="2">Cold Coffee</option>
+            <option value="3">Shakes</option>
         </select>
         <hr>
         <span>Cofee Price</span>
         <input type="text" placeholder="Please Enter Coffee Price" id="Cprice">
         <hr>
         <span>Cofee Description</span>
-        <textarea name="" id="Cdescription" cols="50" rows="5" ></textarea>
+        <textarea name="" id="Cdescription" cols="50" rows="5"></textarea>
         <hr>
         <span> Add Cofee Image</span> <br>
         <img src="" alt="" id="ImageView" style="width: 100px; height: auto;">
-        <input type="file"  id="Cimage" onchange="ViewAddCoffeImage();">
+        <input type="file" id="Cimage" onchange="ViewAddCoffeImage();">
         <hr>
         <button onclick="addCoffee();">Add Coffe Product</button>
 

@@ -5,25 +5,22 @@ function addCoffee() {
   var Cdescription = document.getElementById("Cdescription").value;
   var Cimage = document.getElementById("Cimage");
 
- 
-
   var f = new FormData();
-  f.append("CName",CName);
-  f.append("Ccategory",Ccategory);
-  f.append("Cprice",Cprice);
-  f.append("Cdescription",Cdescription);
-  f.append("Cimage",Cimage);
-
+  f.append("CName", CName);
+  f.append("Ccategory", Ccategory);
+  f.append("Cprice", Cprice);
+  f.append("Cdescription", Cdescription);
+  f.append("Cimage", Cimage.files[0]);
 
   var r = new XMLHttpRequest();
   r.onreadystatechange = function () {
     if (r.readyState == 4 && r.status == 200) {
       alert(r.responseText);
+      window.location.reload();
     }
   };
-  r.open("POST","addCoffeeProcess.php",true);
+  r.open("POST", "addCoffeeProcess.php", true);
   r.send(f);
-
 }
 
 function ViewAddCoffeImage() {
