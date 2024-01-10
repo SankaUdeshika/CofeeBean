@@ -31,15 +31,16 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Dumping structure for table cofeebean_db.cart
 CREATE TABLE IF NOT EXISTS `cart` (
   `Cart_id` int NOT NULL AUTO_INCREMENT,
-  `cartcol` varchar(45) DEFAULT NULL,
   `Coffee_CoffeeId` int NOT NULL,
   `qty` int DEFAULT NULL,
   PRIMARY KEY (`Cart_id`),
   KEY `fk_cart_Coffee1_idx` (`Coffee_CoffeeId`),
   CONSTRAINT `fk_cart_Coffee1` FOREIGN KEY (`Coffee_CoffeeId`) REFERENCES `coffee` (`CoffeeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table cofeebean_db.cart: ~0 rows (approximately)
+INSERT INTO `cart` (`Cart_id`, `Coffee_CoffeeId`, `qty`) VALUES
+	(5, 6, 4);
 
 -- Dumping structure for table cofeebean_db.coffee
 CREATE TABLE IF NOT EXISTS `coffee` (
@@ -52,18 +53,26 @@ CREATE TABLE IF NOT EXISTS `coffee` (
   PRIMARY KEY (`CoffeeId`),
   KEY `fk_Cofee_CofeeCategory_idx` (`CoffeeCategory_Category_id`),
   CONSTRAINT `fk_Cofee_CofeeCategory` FOREIGN KEY (`CoffeeCategory_Category_id`) REFERENCES `coffeecategory` (`Category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table cofeebean_db.coffee: ~0 rows (approximately)
+-- Dumping data for table cofeebean_db.coffee: ~3 rows (approximately)
+INSERT INTO `coffee` (`CoffeeId`, `CoffeeName`, `price`, `CofeeDescription`, `CoffeeCategory_Category_id`, `CoffeImagePath`) VALUES
+	(5, 'AMERICANO', 100, 'Description americano', 1, 'img//CofeeImages//AMERICANO.jpeg'),
+	(6, 'CaffeMocha', 150, 'Description Cafe Mocha', 1, 'img//CofeeImages//CaffeMocha.png'),
+	(7, 'Cappuchino', 200, 'Description Cappuchino', 2, 'img//CofeeImages//Cappuchino.jpeg');
 
 -- Dumping structure for table cofeebean_db.coffeecategory
 CREATE TABLE IF NOT EXISTS `coffeecategory` (
   `Category_id` int NOT NULL AUTO_INCREMENT,
   `Category_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table cofeebean_db.coffeecategory: ~0 rows (approximately)
+-- Dumping data for table cofeebean_db.coffeecategory: ~3 rows (approximately)
+INSERT INTO `coffeecategory` (`Category_id`, `Category_name`) VALUES
+	(1, 'HotCoffee'),
+	(2, 'ColdCoffee'),
+	(3, 'Shakes');
 
 -- Dumping structure for table cofeebean_db.customer
 CREATE TABLE IF NOT EXISTS `customer` (
@@ -90,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `gender` (
 -- Dumping structure for table cofeebean_db.purchasehistory
 CREATE TABLE IF NOT EXISTS `purchasehistory` (
   `PH_id` int NOT NULL AUTO_INCREMENT,
-  `PurchaseHistorycol` varchar(45) DEFAULT NULL,
+  `total` double DEFAULT NULL,
   `cart_Cart_id` int NOT NULL,
   PRIMARY KEY (`PH_id`),
   KEY `fk_PurchaseHistory_cart1_idx` (`cart_Cart_id`),
