@@ -105,5 +105,44 @@ function UpdateQty(id) {
   r.send(f);
 }
 
+function adminLogin() {
+  var Email = document.getElementById("Email").value;
+  var passwrod = document.getElementById("Password").value;
 
+  var f = new FormData();
+  f.append("Email", Email);
+  f.append("passwrod", passwrod);
 
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function () {
+    if (r.readyState == 4 && r.status == 200) {
+      var responseText = r.responseText;
+      if (responseText == "Success") {
+        window.location = "amdinDashboard.php";
+      } else {
+        alert(r.responseText);
+      }
+    }
+  };
+  r.open("POST", "adminLoginProcess.php", true);
+  r.send(f);
+}
+
+function adminsignup() {
+  var Email = document.getElementById("email").value;
+  var passwrod = document.getElementById("passwrod").value;
+
+  var f = new FormData();
+  f.append("Email", Email);
+  f.append("passwrod", passwrod);
+
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function () {
+    if (r.readyState == 4 && r.status == 200) {
+      var responseText = r.responseText;
+      alert(responseText);
+    }
+  };
+  r.open("POST", "adminsignupProcess.php", true);
+  r.send(f);
+}
