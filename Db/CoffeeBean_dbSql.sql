@@ -26,7 +26,10 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`adminEmail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table cofeebean_db.admin: ~0 rows (approximately)
+-- Dumping data for table cofeebean_db.admin: ~2 rows (approximately)
+INSERT INTO `admin` (`adminEmail`, `password`) VALUES
+	('sankaudeshika123@gmail.com', '12345'),
+	('serandi@gmailc.om', '12345');
 
 -- Dumping structure for table cofeebean_db.cart
 CREATE TABLE IF NOT EXISTS `cart` (
@@ -36,11 +39,12 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`Cart_id`),
   KEY `fk_cart_Coffee1_idx` (`Coffee_CoffeeId`),
   CONSTRAINT `fk_cart_Coffee1` FOREIGN KEY (`Coffee_CoffeeId`) REFERENCES `coffee` (`CoffeeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table cofeebean_db.cart: ~0 rows (approximately)
 INSERT INTO `cart` (`Cart_id`, `Coffee_CoffeeId`, `qty`) VALUES
-	(5, 6, 4);
+	(11, 6, 3),
+	(12, 5, 1);
 
 -- Dumping structure for table cofeebean_db.coffee
 CREATE TABLE IF NOT EXISTS `coffee` (
@@ -57,9 +61,9 @@ CREATE TABLE IF NOT EXISTS `coffee` (
 
 -- Dumping data for table cofeebean_db.coffee: ~3 rows (approximately)
 INSERT INTO `coffee` (`CoffeeId`, `CoffeeName`, `price`, `CofeeDescription`, `CoffeeCategory_Category_id`, `CoffeImagePath`) VALUES
-	(5, 'AMERICANO', 100, 'Description americano', 1, 'img//CofeeImages//AMERICANO.jpeg'),
-	(6, 'CaffeMocha', 150, 'Description Cafe Mocha', 1, 'img//CofeeImages//CaffeMocha.png'),
-	(7, 'Cappuchino', 200, 'Description Cappuchino', 2, 'img//CofeeImages//Cappuchino.jpeg');
+	(5, 'AMERICANO', 150, 'Cozy up with our creamy hot chocolate, a delightful winter indulgence.', 1, 'img//CofeeImages//AMERICANO.jpeg'),
+	(6, 'Cafe Mocha', 200, 'Cozy up with our creamy hot chocolate, a delightful winter indulgence.', 2, 'img//CofeeImages//CaffeMocha.png'),
+	(7, 'caremel Coffee', 3445, 'Cozy up with our creamy hot chocolate, a delightful winter indulgence.', 1, 'img//CofeeImages//Cappuchino.jpeg');
 
 -- Dumping structure for table cofeebean_db.coffeecategory
 CREATE TABLE IF NOT EXISTS `coffeecategory` (

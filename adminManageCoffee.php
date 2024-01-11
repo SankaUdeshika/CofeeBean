@@ -38,7 +38,6 @@ require "connection.php";
                 }
                 ?>
             </select>
-            <h1><?php echo ($Coffee_data['CoffeeId']) ?></h1>
             <button onclick="UpdateCofeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Upadate</button>
             <button onclick="DeleteCoffeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Delete</button>
         </div>
