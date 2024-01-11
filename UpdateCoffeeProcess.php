@@ -2,13 +2,13 @@
 
 require "connection.php";
 
-if (!isset($_POST["CName"])) {
+if (empty($_POST["CName"])) {
     echo ("Pelase Enter Coffee Name");
-} else if (!isset($_POST["Ccategory"])) {
+} else if (empty($_POST["Ccategory"])) {
     echo ("Pelase Select a Category");
-} else if (!isset($_POST["Cprice"])) {
+} else if (empty($_POST["Cprice"])) {
     echo ("Pelase Enter a Price");
-} else if (!isset($_POST["Cprice"])) {
+} else if (empty($_POST["Cprice"])) {
     echo ("Pelase Enter a Description");
 } else {
 
@@ -19,5 +19,5 @@ if (!isset($_POST["CName"])) {
     $id = $_POST["Cid"];
 
     Database::iud("UPDATE `coffee` SET `CoffeeName` = '" . $CoffeeName . "' , `price` = '" . $CoffeePrice . "' , `CofeeDescription` = '" . $CoffeeDescription . "' , `CoffeeCategory_Category_id` ='" . $CoffeeCategory . "' WHERE `CoffeeId` = '" . $id . "' ");
-    echo("SUCCESS");
+    echo ("SUCCESS");
 }

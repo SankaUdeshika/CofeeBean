@@ -34,16 +34,17 @@ function ViewAddCoffeImage() {
 }
 
 function UpdateCofeeInfo(id) {
-  var CName = document.getElementById("Cname").value;
-  var Ccategory = document.getElementById("Ccategory").value;
-  var Cprice = document.getElementById("Cprice").value;
-  var Cdescription = document.getElementById("Cdescription").value;
+  var CName = document.getElementById("Cname" + id).value;
+  var Ccategory = document.getElementById("Ccategory" + id).value;
+  var Cprice = document.getElementById("Cprice" + id).value;
+  var Cdescription = document.getElementById("Cdescription" + id).value;
 
   var f = new FormData();
   f.append("CName", CName);
   f.append("Ccategory", Ccategory);
   f.append("Cprice", Cprice);
   f.append("Cdescription", Cdescription);
+
   f.append("Cid", id);
 
   var r = new XMLHttpRequest();

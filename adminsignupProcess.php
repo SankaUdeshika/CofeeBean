@@ -6,7 +6,6 @@ if (empty($_POST["Email"])) {
 } else if (empty($_POST["passwrod"])) {
     echo ("Please Enter a password");
 } else {
-
     $email = $_POST["Email"];
     $passwrod = $_POST["passwrod"];
 

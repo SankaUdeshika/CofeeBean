@@ -22,10 +22,10 @@ require "connection.php";
     ?>
         <div>
             <img src="<?php echo ($Coffee_data["CoffeImagePath"]) ?>" style="width: 100px; height: auto;" alt="">
-            <input type="text" id="Cname" value="<?php echo ($Coffee_data["CoffeeName"]) ?>">
-            <input type="text" id="Cprice" value="<?php echo ($Coffee_data["price"]) ?>">
-            <textarea name="" id="Cdescription" cols="30" rows="10"><?php echo ($Coffee_data["CofeeDescription"]) ?></textarea>
-            <select id="Ccategory">
+            <input type="text" id="Cname<?php echo ($Coffee_data['CoffeeId']) ?>" value="<?php echo ($Coffee_data["CoffeeName"]) ?>">
+            <input type="text" id="Cprice<?php echo ($Coffee_data['CoffeeId']) ?>" value="<?php echo ($Coffee_data["price"]) ?>">
+            <textarea name="" id="Cdescription<?php echo ($Coffee_data['CoffeeId']) ?>" cols="30" rows="10"><?php echo ($Coffee_data["CofeeDescription"]) ?></textarea>
+            <select id="Ccategory<?php echo ($Coffee_data['CoffeeId']) ?>">
                 <?php
                 $category_rs = Database::search("SELECT * FROM `coffeecategory`");
                 $category_num = $category_rs->num_rows;
@@ -38,6 +38,7 @@ require "connection.php";
                 }
                 ?>
             </select>
+            <h1><?php echo ($Coffee_data['CoffeeId']) ?></h1>
             <button onclick="UpdateCofeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Upadate</button>
             <button onclick="DeleteCoffeeInfo(<?php echo ($Coffee_data['CoffeeId']) ?>);">Delete</button>
         </div>

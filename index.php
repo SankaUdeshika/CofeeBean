@@ -27,6 +27,7 @@ require "connection.php";
         <li><a href="#menu">Menu</a></li>
         <li><a href="#shop">Shop</a></li>
         <li><a href="#contact">Contact Us</a></li>
+        <li><a href="cart.php">Cart</a></li>
       </ul>
     </nav>
   </header>
@@ -136,11 +137,11 @@ require "connection.php";
 
               if ($cart_num == 1) {
               ?>
-                <button onclick="addcart( <?php echo ($coffee_data['CoffeeId']) ?> );">Add to cart</button>
+                <button onclick="addcart( <?php echo ($coffee_data['CoffeeId']) ?> );">Remove from cart</button>
               <?php
               } else if ($cart_num == 0) {
               ?>
-                <button onclick="addcart( <?php echo ($coffee_data['CoffeeId']) ?> );">Remove form cart</button>
+                <button onclick="addcart( <?php echo ($coffee_data['CoffeeId']) ?> );">Add to cart</button>
               <?php
               }
               ?>
